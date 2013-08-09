@@ -1,0 +1,17 @@
+include_directories(${ttree_SOURCE_DIR})
+link_directories(${ttree_SOURCE_DIR})
+
+ADD_LIBRARY(utest SHARED utest.c)
+set(UTLIB utest)
+set(OBJS utils.c)
+set(TESTS t_init t_balance t_lookup t_cursor_move)
+
+add_executable(t_init t_init.c ${OBJS})
+add_executable(t_balance t_balance.c ${OBJS})
+add_executable(t_lookup t_lookup.c ${OBJS})
+add_executable(t_cursor_move t_cursor_move.c ${OBJS})
+target_link_libraries(t_init ttree ${UTLIB})
+target_link_libraries(t_balance ttree ${UTLIB})
+target_link_libraries(t_lookup ttree ${UTLIB})
+target_link_libraries(t_cursor_move ttree ${UTLIB})
+add_custom_target(tests DEPENDS ${UTLIB} ${TESTS})
