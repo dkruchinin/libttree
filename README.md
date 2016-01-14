@@ -7,8 +7,9 @@ it definitely needs.
 
 How to build
 ------------
-  % cd libttree
-  % cmake CMakeLists.txt
-  ...
-  % make
-  % ls libttree.a // that's the library file
+
+    % cd libttree
+    % cmake CMakeLists.txt
+    ...
+    % make
+    % ls libttree.a // that's the library file
